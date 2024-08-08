@@ -2,6 +2,7 @@ package com.zohaib.microservices.Company;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zohaib.microservices.Job.Job;
 
 import jakarta.persistence.CascadeType;
@@ -15,14 +16,15 @@ import lombok.Data;
 @Data
 @Entity
 public class Company {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String name;
     private String description;
     
-    @OneToMany(cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
     private List<Job> jobs;
 }

@@ -1,9 +1,12 @@
 package com.zohaib.microservices.Job;
 
+import com.zohaib.microservices.Company.Company;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.Data;
 
 @Entity
@@ -19,6 +22,10 @@ public class Job {
     private String minSallery;
     private String maxSallery;
     
+    
+    @ManyToOne
+    private Company company;
+
     
     
 
