@@ -4,8 +4,8 @@ import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.zohaib.microservices.Job.Job;
+import com.zohaib.microservices.Reviews.Review;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -23,8 +23,12 @@ public class Company {
 
     private String name;
     private String description;
-    
+
     @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
+
+    
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 }

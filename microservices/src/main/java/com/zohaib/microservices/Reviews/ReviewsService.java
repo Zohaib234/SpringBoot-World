@@ -4,9 +4,9 @@ import java.util.List;
 
 public interface ReviewsService {
 
-    void createReview(Review review);
-    List<Review> getReviews();
-    Review getReviewById(Long id);
-    boolean deleteReview(Long id);
-    boolean updateReview(Long id, Review review);
+    boolean createReview( Long companyId,Review review);
+    List<Review> getReviews(Long companyId);
+    Review getReviewById(Long companyId, Long reviewId);
+    boolean deleteReview(Long companyId, Long reviewId);
+    boolean updateReview(Long companyId, Long reviewId, Review updatedReview);
 }
